@@ -5,42 +5,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel='stylesheet' type='text/css' media='screen' href='kosarStyle.css'>
 </head>
 
 <body>
-  <h1>A kiválasztott termék: >
-  </h1>
+ 
   <form method="post">
-    Név:
-    <input type="text" name="nev"><br>
-    <h3> Számlázási cím: </h3> <br>
-    Ország:
-    <input type="text" name="orszag"><br>
-    Irányítószám:
-    <input type="text" name="iranyitoSzam"><br>
-    Város:
-    <input type="text" name="varos"><br>
-    Utca és házszám:
-    <input type="text" name="utcaEsHsz"><br>
-    <h3> Szállítási cím: </h3> <br>
-    Ország:
-    <input type="text" name="orszag2"><br>
-    Irányítószám:
-    <input type="text" name="iranyitoSzam2"><br>
-    Város:
-    <input type="text" name="varos2"><br>
-    Utca és házszám:
-    <input type="text" name="utcaEsHsz2"><br>
-    Kuponkód: <input type="text" name="kupon"><br>
-    <h3>Fizetési eszköz:</h3> <br>
-    Bankártyaszám: <input type="text" name="bankartyaszam" id=""> <br>
-    lejárati dátum: <input type="text" name="lejarat"> <br>
-    CVC: <input type="text" name="cvc"> <br>
+    <label for="nev">Név:&nbsp;</label>
+    <input type="text" name="nev" value="<%=data.nev%>" required><br>
+
+    <div>
+      <h2> Számlázási cím </h2> <br>
+      <label for="orszag">Ország:&nbsp;</label>
+      <input type="text" name="orszag" value="<%=data.orszag%>" required><br>
+
+      <label for="iranyitoSzam">Irányítószám:&nbsp;</label>
+      <input type="text" name="iranyitoSzam" value="<%=data.iranyitoSzam%>" required><br>
+
+      <label for="varos">Város:&nbsp;</label>
+      <input type="text" name="varos" value="<%=data.varos%>" required><br>
+
+      <label for="utcaEsHsz">Utca és házszám:&nbsp;</label>
+      <input type="text" name="utcaEsHsz" value="<%=data.utcaEsHsz%>" required><br>
+    </div>
+
+    <div>
+      <h2> Szállítási cím </h2> <br>
+      <label for="orszag2">Ország:&nbsp;</label>
+      <input type="text" name="orszag2" value="<%=data.orszag2%>" required><br>
+
+      <label for="iranyitoSzam2">Irányítószám:&nbsp;</label>
+      <input type="text" name="iranyitoSzam2" value="<%=data.iranyitoSzam2%>" required><br>
+
+      <label for="varos2">Város:&nbsp;</label>
+      <input type="text" name="varos2" value="<%=data.varos2%>" required><br>
+
+      <label for="utcaEsHsz2">Utca és házszám:&nbsp;</label>
+      <input type="text" name="utcaEsHsz2" value="<%=data.utcaEsHsz2%>" required><br>
+
+    </div>
+    
+    <div>
+      <h2>Fizetési eszköz</h2> <br>
+      
+      <label for="bankartyaszam">Bankártyaszám:&nbsp;</label>
+      <input type="text" name="bankartyaszam" placeholder="XXXX-XXXX-XXXX-XXXX" required> <br>
+      
+      <label for="lejarat">Lejárati dátum:&nbsp;</label>
+      <input type="text" name="lejarat" placeholder="MM/ÉÉ" required> <br>
+      
+      <label for="cvc">CVC:&nbsp;</label>
+      <input type="text" name="cvc" required> <br>
+
+      <label for="kupon">Kuponkód:&nbsp;</label>
+      <input type="text" name="kupon" value="<%=data.kupon%>" placeholder="AA-1234"><br>
+    </div>
+
     <% for(let err of errors) { %>
-      <p style="color: red;"><%= err%></p>
-      <%}%>
-    <input type="submit">
+      <p style="color: red;">
+        <%= err%>
+      </p>
+      <% } %>
+
+        <input type="submit">
   </form>
-</body>
+  </body>
 
 </html>

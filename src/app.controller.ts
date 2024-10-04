@@ -46,19 +46,25 @@ export class AppController {
       errors.push('A kupon formátuma BB-SSSS, ahol a B nagybetű, az S szám, pl. PT-1255')
     }
 
+    if (!/^\d{3}$/.test(checkoutDto.cvc)) {
+      errors.push("A CVC kód 3 számjegy!")  
+    }
+
     const lejarat = checkoutDto.lejarat.split('/')
     const year = "20"+lejarat[1];
     const datum = new Date()
-    if(parseInt(year)<datum.getFullYear() || parseInt(year)==datum.getFullYear() && parseInt(lejarat[0]) < datum.getMonth()) {
-      errors.push("A bankkártya lejárt!")
+    if (checkoutDto.lejarat) {
+      if(parseInt(year)<datum.getFullYear() || parseInt(year)==datum.getFullYear() && parseInt(lejarat[0]) < datum.getMonth()) {
+        errors.push("A bankkártya lejárt!")
+      }
     }
 
     if (errors.length > 0) {
       response.render('kosar', {
         errors,
-        
+        data: checkoutDto
         })
-      return;
+      return ;
     }
     
     response.redirect(303, '/sikeresRendeles')
