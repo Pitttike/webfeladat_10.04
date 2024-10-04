@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>A kiválasztott termék: >
+  </h1>
+  <form method="post">
+    Név:
+    <input type="text" name="nev"><br>
+    <h3> Számlázási cím: </h3> <br>
+    Ország:
+    <input type="text" name="orszag"><br>
+    Irányítószám:
+    <input type="text" name="iranyitoSzam"><br>
+    Város:
+    <input type="text" name="varos"><br>
+    Utca és házszám:
+    <input type="text" name="utcaEsHsz"><br>
+    <h3> Szállítási cím: </h3> <br>
+    Ország:
+    <input type="text" name="orszag2"><br>
+    Irányítószám:
+    <input type="text" name="iranyitoSzam2"><br>
+    Város:
+    <input type="text" name="varos2"><br>
+    Utca és házszám:
+    <input type="text" name="utcaEsHsz2"><br>
+    Kuponkód: <input type="text" name="kupon"><br>
+    <h3>Fizetési eszköz:</h3> <br>
+    Bankártyaszám: <input type="text" name="bankartyaszam" id=""> <br>
+    lejárati dátum: <input type="text" name="lejarat"> <br>
+    CVC: <input type="text" name="cvc"> <br>
+    <% for(let err of errors) { %>
+      <p style="color: red;"><%= err%></p>
+      <%}%>
+    <input type="submit">
+  </form>
+</body>
+
+</html>
